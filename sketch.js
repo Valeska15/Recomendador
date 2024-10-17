@@ -1,37 +1,54 @@
-// fantasia, aventura, drama
-
-// a viagem de chihiro, LIVRE, fantasia, aventura
-// paddington, LIVRE, fantasia, aventura
-
-// as aventuras de pi, 10, drama, fantasia, aventura
-// guardiões da galáxia, 12, fantasia, aventura
-// ladrões de bicicleta, 12, drama
-// o menino que descobriu o vento, 14, drama
-
- let campoIdade;
+let campoIdade;
+let campoFantasia;
+let campoAventura;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 400);
+  createElement("h2", "Recomendador de filmes");
+  createSpan("Sua idade:");
   campoIdade = createInput("5");
+  campoFantasia = createCheckbox("Gosta de fantasia?");
+  campoAventura = createCheckbox("Gosta de aventura?");
 }
 
 function draw() {
-  background(220);
+  background("rgb(196,118,118)");
   let idade = campoIdade.value();
-  let recomendaçao = geraRecomendaçao(idade);
-  text(recomendaçao, width / 2, height / 2);
+  let gostaDeFantasia = campoFantasia.checked();
+  let gostaDeAventura = campoAventura.checked();
+  let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura);
+
+  fill(color(76, 0, 115));
+  textAlign(CENTER, CENTER);
+  textSize(38);
+  text(recomendacao, width / 2, height / 2);
 }
 
-function geraRecomendaçao(idade) {
-  if(idade >= 10) {
-    if(idade >= 14) {
-    return "O menino que descobriu o vento"
-   } else {
-     return "A viagem de chihiro";
-   }
-  }else
-
-
-
-
+function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
+  if (idade >= 10) {
+    if (idade >= 14) {
+      return "O menino que descobriu o vento";
+    } else {
+      if (idade >= 12) {
+        if(gostaDeFantasia || gostaDeAventura) {
+          return "Homem aranha: no aranhaverso";          
+        } else{
+         return "Ladrões de bicicleta";
+        }
+      } else {
+        if (gostaDeFantasia) {
+          return "As aventuras de pi";
+        } else {
+          return "Depois da chuva";
+        }
+      }
+    }
+  } else {
+    if (gostaDeFantasia) {
+      return "Meus 15";
+    } else {
+      return "As aventuras de pi";
+    }
+  }
+}
 
