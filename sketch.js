@@ -45,7 +45,7 @@ function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
     }
   } else {
     if (gostaDeFantasia) {
-      return "Meus 15";
+      return "Fabrica de Chocolate";
     } else {
       return "As aventuras de pi";
     }
