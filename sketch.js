@@ -4,21 +4,21 @@ let campoAventura;
 
 function setup() {
   createCanvas(800, 400);
-  createElement("h2", "Recomendador de filmes");
+  createElement("h2", "Recomendador de Musicas")
   createSpan("Sua idade:");
   campoIdade = createInput("5");
-  campoFantasia = createCheckbox("Gosta de fantasia?");
-  campoAventura = createCheckbox("Gosta de aventura?");
+  campoFantasia = createCheckbox("Gosta de Musicas K-POP?")
+  campoAventura = createCheckbox("Gosta de Musicas Eletronicas?")
 }
 
 function draw() {
-  background("rgb(196,118,118)");
+  background("rgb(255,255,255)");
   let idade = campoIdade.value();
   let gostaDeFantasia = campoFantasia.checked();
   let gostaDeAventura = campoAventura.checked();
   let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura);
 
-  fill(color(76, 0, 115));
+  fill(color(75, 0, 15));
   textAlign(CENTER, CENTER);
   textSize(38);
   text(recomendacao, width / 2, height / 2);
@@ -27,17 +27,17 @@ function draw() {
 function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
   if (idade >= 10) {
     if (idade >= 14) {
-      return "O menino que descobriu o vento";
+      return "Kill This Love'-BlackPink"
     } else {
       if (idade >= 12) {
         if(gostaDeFantasia || gostaDeAventura) {
-          return "Homem aranha: no aranhaverso";          
+          return "Alive (It feels like) – Alok.";          
         } else{
-         return "Ladrões de bicicleta";
+         return "Whistle-BlackPink"
         }
       } else {
-        if (gostaDeFantasia) {
-          return "As aventuras de pi";
+        if (GostadeMusicasEletronicas) {
+          return "The Business – Tiesto.";
         } else {
           return "Depois da chuva";
         }
@@ -45,10 +45,9 @@ function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
     }
   } else {
     if (gostaDeFantasia) {
-      return "Fabrica de Chocolate";
+      return "Whistle-BlackPink"
     } else {
-      return "As aventuras de pi";
+      return "Alive (It feels like) – Alok.";
     }
   }
 }
-
